@@ -1,4 +1,4 @@
-package 게시판.DAO;
+package 게시판.DTO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,8 +43,5 @@ public class JDBConnection {
 		
 	}
 	
-	public static void main(String[] args) {
-		JDBConnection jdbc = new JDBConnection();
-	}
 	
 }
