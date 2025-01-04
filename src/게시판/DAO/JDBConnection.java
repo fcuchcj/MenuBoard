@@ -1,4 +1,4 @@
-package 게시판.DTO;
+package 게시판.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

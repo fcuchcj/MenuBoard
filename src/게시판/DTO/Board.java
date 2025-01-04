@@ -23,7 +23,7 @@ public class Board {
 	private String writer;
 	private String content;
 	private Date regDate;
-	private Date upDate;
+	private Date updDate;
 	
 	public Board() {
 		this("(제목없음)","(작성자없음)","");
