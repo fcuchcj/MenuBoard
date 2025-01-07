@@ -53,7 +53,33 @@ public class BoardDAO extends JDBConnection {
 	}
 	//데이터 조회 select
 	public Board select(int no) {
-		// TODO Auto-generated method stub
+		//게시글 정보 객체 생성
+		Board board = new Board();
+		//SQL작성
+		String sql = "SELECT *"
+					+"FROM board"
+					+"WHERE no =?"; //no가 ?인 데이터만 조회
+		// = ? 이것은 조건을 부여하는 느낌!
+		//데이터 조회하는 프로세스: SQL 실행 객체 생성 -> SQL 실행 요청 -> 조회결과 -> 반환
+		try {
+			//SQL 실행 객체 생성 - PreparedStatement (psmt)
+			psmt = con.prepareStatement(sql);
+			// ? 동적 피라미터 바인딩 
+			// * psmt.setXXX(순서번호,매핑할 값);
+			psmt.setInt(1,no);	//1번째 ? 피라미터에 매핑
+			/* SELECT from board where no = ? 여기 문장의 
+			 * ? 값에 no를 대입 (바인딩!)
+			 */
+			
+			//SQL실행 요청
+			rs=psmt.executeQuery();
+			//조회 결과 1건 가져오기
+			if(rs.next()) {
+				board.setNO(rs.getInt("no"));
+			}
+		} catch (SQLException e) {
+			
+		}
 		return null;
 	}
 
